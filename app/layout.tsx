@@ -22,13 +22,7 @@ export default function RootLayout({
             <head>
                 <meta
                     property="og:image"
-                    content={`${
-                        process.env.NEXT_PUBLIC_HOSTNAME
-                    }/api/og?title=${encodeURIComponent(
-                        "My Blog Post is Super Good",
-                    )}&avatar=${encodeURIComponent(
-                        "https://lh3.googleusercontent.com/a/ACg8ocJ4477pnN5d6B3xu7EAB-KTgIrcDP3BDwKcPYntEsQ12DE=s96-c",
-                    )}`}
+                    content={`${process.env.NEXT_PUBLIC_HOSTNAME}/api/tracker?id=${1}`}
                 />
             </head>
             <body className={inter.className}>
