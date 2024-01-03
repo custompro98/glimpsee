@@ -1,12 +1,11 @@
 import { URLSearchParams } from "url";
-import { Keyword } from "../og/route";
 import { redirect } from "next/navigation";
 
 export const runtime = "edge";
 
 export async function GET(request: Request) {
     const { searchParams } = new URL(request.url);
-    const id = getSearchParam(searchParams, Keyword.Id);
+    const id = getSearchParam(searchParams, "id");
 
     console.log("===", id, "===");
 
@@ -23,7 +22,7 @@ export async function GET(request: Request) {
 
 function getSearchParam(
     searchParams: URLSearchParams,
-    keyword: Keyword,
+    keyword: string,
 ): string | undefined {
     const hasKeyword = searchParams.has(keyword);
 
