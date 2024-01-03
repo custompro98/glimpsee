@@ -15,7 +15,7 @@ export async function GET(request: Request) {
         "https://lh3.googleusercontent.com/a/ACg8ocJ4477pnN5d6B3xu7EAB-KTgIrcDP3BDwKcPYntEsQ12DE=s96-c";
 
     redirect(
-        `http://localhost:3000/api/og?title=${encodeURIComponent(
+        `${process.env.NEXT_PUBLIC_HOSTNAME}/api/og?title=${encodeURIComponent(
             title,
         )}&avatar=${encodeURIComponent(avatar)}`,
     );
