@@ -1,5 +1,6 @@
 import { URLSearchParams } from "url";
 import { redirect } from "next/navigation";
+import env from "../../../lib/env";
 
 export const runtime = "edge";
 
@@ -14,7 +15,7 @@ export async function GET(request: Request) {
         "https://lh3.googleusercontent.com/a/ACg8ocJ4477pnN5d6B3xu7EAB-KTgIrcDP3BDwKcPYntEsQ12DE=s96-c";
 
     redirect(
-        `${process.env.NEXT_PUBLIC_HOSTNAME}/api/og?title=${encodeURIComponent(
+        `${env.NEXT_PUBLIC_HOSTNAME}/api/og?title=${encodeURIComponent(
             title,
         )}&avatar=${encodeURIComponent(avatar)}`,
     );
