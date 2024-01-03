@@ -19,6 +19,16 @@ export default function RootLayout({
 }) {
     return (
         <html lang="en">
+            <head>
+                <meta
+                    property="og:image"
+                    content={`http://localhost:3000/api/og?title=${encodeURIComponent(
+                        "My Blog Post is Super Good",
+                    )}&avatar=${encodeURIComponent(
+                        "https://lh3.googleusercontent.com/a/ACg8ocJ4477pnN5d6B3xu7EAB-KTgIrcDP3BDwKcPYntEsQ12DE=s96-c",
+                    )}`}
+                />
+            </head>
             <body className={inter.className}>
                 <SessionProvider>{children}</SessionProvider>
             </body>
