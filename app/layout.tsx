@@ -4,7 +4,6 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { SessionProvider } from "next-auth/react";
-import env from "../lib/env";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -23,7 +22,7 @@ export default function RootLayout({
             <head>
                 <meta
                     property="og:image"
-                    content={`${env.NEXT_PUBLIC_HOSTNAME}/api/tracker?id=${1}`}
+                    content={`${process.env.NEXT_PUBLIC_HOSTNAME}/api/tracker?id=${1}`}
                 />
             </head>
             <body className={inter.className}>
