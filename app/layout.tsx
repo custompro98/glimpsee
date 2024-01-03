@@ -1,16 +1,11 @@
 "use client";
 
-// import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { SessionProvider } from "next-auth/react";
+import Navigation from "@/components/Navigation";
 
 const inter = Inter({ subsets: ["latin"] });
-
-// export const metadata: Metadata = {
-//     title: "Oggify Me",
-//     description: "Generate OG images for social media posts",
-// };
 
 export default function RootLayout({
     children,
@@ -19,14 +14,24 @@ export default function RootLayout({
 }) {
     return (
         <html lang="en">
+            {/*
+
             <head>
                 <meta
                     property="og:image"
-                    content={`${process.env.NEXT_PUBLIC_HOSTNAME}/api/tracker?id=${1}`}
+                    content={`${process.env.NEXT_PUBLIC_HOSTNAME}/api/tracker?id=${some-id}`}
                 />
             </head>
+        */}
             <body className={inter.className}>
-                <SessionProvider>{children}</SessionProvider>
+                <SessionProvider>
+                    <header>
+                        <Navigation />
+                    </header>
+                    <main className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+                        {children}
+                    </main>
+                </SessionProvider>
             </body>
         </html>
     );
