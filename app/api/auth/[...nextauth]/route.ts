@@ -1,6 +1,6 @@
 import NextAuth from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
-import env from "../../../../lib/env";
+import env from "@/lib/env";
 
 const handler = NextAuth({
     providers: [
