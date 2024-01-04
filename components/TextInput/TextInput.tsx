@@ -1,6 +1,11 @@
+import { ChangeEventHandler } from "react";
+
 interface Props {
     label: string;
+    name: string;
     placeholder: string;
+    value: string | undefined;
+    handleChange: ChangeEventHandler<HTMLInputElement>;
 }
 
 export default function TextInput(props: Props) {
@@ -12,7 +17,10 @@ export default function TextInput(props: Props) {
             <input
                 className={`border p-2`}
                 placeholder={capitalize(props.placeholder)}
+                name={props.name}
                 type="text"
+                value={props.value}
+                onChange={props.handleChange}
             />
         </div>
     );
