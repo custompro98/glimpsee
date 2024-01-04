@@ -8,6 +8,20 @@
       "when": 1704307492550,
       "tag": "0000_vengeful_eternity",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "5",
+      "when": 1704403868646,
+      "tag": "0001_sticky_ego",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "5",
+      "when": 1704404519974,
+      "tag": "0002_violet_the_leader",
+      "breakpoints": true
     }
   ]
 }

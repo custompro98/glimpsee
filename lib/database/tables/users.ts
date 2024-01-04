@@ -1,5 +1,10 @@
 import { sql } from "drizzle-orm";
-import { index, integer, sqliteTable, text } from "drizzle-orm/sqlite-core";
+import {
+    integer,
+    sqliteTable,
+    text,
+    uniqueIndex,
+} from "drizzle-orm/sqlite-core";
 
 export const users = sqliteTable(
     "users",
@@ -18,7 +23,7 @@ export const users = sqliteTable(
     },
     (table) => {
         return {
-            emailPartialIdx: index("email_partial_idx")
+            emailPartialIdx: uniqueIndex("email_partial_idx")
                 .on(table.email)
                 .where(sql`deleted_at IS NULL`),
         };
