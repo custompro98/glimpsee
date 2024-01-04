@@ -12,6 +12,7 @@ export const users = sqliteTable(
         createdAt: integer("created_at", { mode: "timestamp" })
             .notNull()
             .default(sql`CURRENT_TIMESTAMP`),
+        avatar: text("avatar", { mode: "text" }),
         updatedAt: integer("updated_at", { mode: "timestamp" }),
         deletedAt: integer("deleted_at", { mode: "timestamp" }),
     },
