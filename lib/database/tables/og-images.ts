@@ -24,11 +24,11 @@ export const ogImageBlogs = sqliteTable(
         ogImageId: integer("og_image_id", { mode: "number" })
             .notNull()
             .references(() => ogImages.id),
-        avatar: text("avatar", { mode: "text" }).notNull(),
         title: text("title", { mode: "text" }).notNull(),
         background_color: text("title", { mode: "text" })
             .notNull()
             .default("#FFFFFF"),
+        icon: text("icon", { mode: "text" }).notNull(),
     },
     (table) => {
         return {
