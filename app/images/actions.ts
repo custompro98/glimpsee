@@ -4,12 +4,8 @@ import { db } from "@/lib/database";
 import { ogImageBlogs, ogImages, users } from "@/lib/database/tables";
 import { eq } from "drizzle-orm";
 
-export async function list(email?: string | null) {
+export async function list(email: string) {
   "use server";
-
-  if (!email) {
-    return [];
-  }
 
   const ogImageRecords = await db
     .select()

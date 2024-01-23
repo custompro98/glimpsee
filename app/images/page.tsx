@@ -4,7 +4,15 @@ import { getServerSession } from "next-auth";
 
 export default async function Images() {
   const session = await getServerSession();
-  const images = await list(session?.user?.email);
+
+  if (!session?.user?.email) {
+    return (
+      <div>
+        Please <Link href="/api/auth/signin">sign in</Link>
+      </div>
+    );
+  }
+  const images = await list(session.user.email);
 
   return (
     <section className="w-full py-12 md:py-24 lg:py-32 xl:py-48">
