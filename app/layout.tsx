@@ -1,5 +1,3 @@
-"use client";
-
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { SessionProvider } from "next-auth/react";
@@ -8,13 +6,13 @@ import Navigation from "@/components/Navigation";
 const inter = Inter({ subsets: ["latin"] });
 
 export default function RootLayout({
-    children,
+  children,
 }: {
-    children: React.ReactNode;
+  children: React.ReactNode;
 }) {
-    return (
-        <html lang="en">
-            {/*
+  return (
+    <html lang="en">
+      {/*
 
             <head>
                 <meta
@@ -23,16 +21,16 @@ export default function RootLayout({
                 />
             </head>
         */}
-            <body className={inter.className}>
-                <SessionProvider>
-                    <header>
-                        <Navigation />
-                    </header>
-                    <main className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-                        {children}
-                    </main>
-                </SessionProvider>
-            </body>
-        </html>
-    );
+      <body className={inter.className}>
+        <SessionProvider>
+          <header>
+            <Navigation />
+          </header>
+          <main className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+            {children}
+          </main>
+        </SessionProvider>
+      </body>
+    </html>
+  );
 }
