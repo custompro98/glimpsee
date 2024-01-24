@@ -2,7 +2,19 @@ import Link from "next/link";
 import { list } from "./actions";
 import { getServerSession } from "next-auth";
 
-export default async function Images() {
+enum SearchParamKeys {
+  PAGE = "page",
+}
+
+interface SearchParams {
+  [SearchParamKeys.PAGE]: string;
+}
+
+export default async function Images({
+  searchParams,
+}: {
+  searchParams: SearchParams;
+}) {
   const session = await getServerSession();
 
   if (!session?.user?.email) {
@@ -12,7 +24,9 @@ export default async function Images() {
       </div>
     );
   }
-  const images = await list(session.user.email);
+
+  const page = parseInt(searchParams[SearchParamKeys.PAGE] || "1");
+  const listResults = await list(session.user.email, { page });
 
   return (
     <section className="w-full py-12 md:py-24 lg:py-32 xl:py-48">
@@ -33,7 +47,7 @@ export default async function Images() {
             </tr>
           </thead>
           <tbody>
-            {images.map((image) => {
+            {listResults.records.map((image) => {
               return (
                 <tr
                   key={image.og_images.id}
@@ -67,6 +81,18 @@ export default async function Images() {
             })}
           </tbody>
         </table>
+        <div className="flex flex-row w-full justify-between">
+          {(listResults.hasPrev && (
+            <button>
+              <Link href={`/images?page=${page - 1}`}>Prev</Link>
+            </button>
+          )) || <div></div>}
+          {(listResults.hasNext && (
+            <button>
+              <Link href={`/images?page=${page + 1}`}>Next</Link>
+            </button>
+          )) || <div></div>}
+        </div>
       </div>
     </section>
   );
