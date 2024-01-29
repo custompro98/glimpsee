@@ -2,7 +2,7 @@ import Link from "next/link";
 import AuthenticatedNav from "./AuthenticatedNav";
 import SignIn from "./SignIn";
 import SignOut from "./SignOut";
-import { useState } from "react";
+// import { useState } from "react";
 import { getServerSession } from "next-auth";
 
 export default async function Navigation() {
@@ -20,7 +20,7 @@ export default async function Navigation() {
           className="flex items-center space-x-3 rtl:space-x-reverse"
         >
           <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
-            OggifyMe
+            Glimpsy
           </span>
         </Link>
         <button
