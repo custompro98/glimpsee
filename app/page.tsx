@@ -8,7 +8,7 @@ export default function Home() {
           <div className="flex flex-col items-center space-y-4 text-center">
             <div className="space-y-2">
               <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl/none">
-                Glimpsy
+                Glimpsee
               </h1>
               <p className="mx-auto max-w-[700px] text-gray-500 md:text-xl dark:text-gray-400">
                 Generate beautiful social media preview images for your website.
@@ -22,10 +22,10 @@ export default function Home() {
         <div className="container grid items-center gap-6 px-4 md:px-6 lg:grid-cols-2 lg:gap-10">
           <div className="space-y-2">
             <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight">
-              Why use Glimpsy?
+              Why use Glimpsee?
             </h2>
             <p className="max-w-[600px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
-              Glimpsy helps you create beautiful and engaging OpenGraph images
+              Glimpsee helps you create beautiful and engaging OpenGraph images
               for your website. These images are used when your website is
               shared on social media platforms, making them an essential part of
               your website&apos;s SEO.
