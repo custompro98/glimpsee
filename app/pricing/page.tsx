@@ -1,42 +1,60 @@
+import { mdiStar } from "@mdi/js";
+import Icon from "@mdi/react";
 import Link from "next/link";
 
 export default function Pricing() {
   return (
-    <div>
-      <div>
-        <h1>Pricing</h1>
-        <p>
-          Generate beautiful social media preview images for your website or
-          blog posts. Choose a plan that fits your needs.
-        </p>
+    <section className="container">
+      <div className="hero is-fullheight-with-navbar pt-6">
+        <div className="hero-body">
+          <div className="tile is-ancestor is-vertical">
+            <div className="tile is-parent box">
+              <article className="tile is-child notification is-light">
+                <p className="title">Hobby</p>
+                <p className="subtitle">$4.99/mo</p>
+                <div className="content">
+                  <ul>
+                    <li>Up to 5 image generations per month</li>
+                    <li>Email support</li>
+                  </ul>
+                  <Link href="/api/auth/signin">Get started</Link>
+                </div>
+              </article>
+            </div>
+            <div className="tile is-parent box">
+              <article className="tile is-child notification is-info">
+                <p className="title">
+                  Pro
+                  <span className="icon is-pulled-right">
+                    <Icon path={mdiStar} size={1} />
+                  </span>
+                </p>
+                <p className="subtitle">$24.99/mo</p>
+                <div className="content">
+                  <ul>
+                    <li>Up to 20 image generations per month</li>
+                    <li>Priority email support</li>
+                  </ul>
+                  <Link href="/api/auth/signin">Get started</Link>
+                </div>
+              </article>
+            </div>
+            <div className="tile is-parent box">
+              <article className="tile is-child notification is-light">
+                <p className="title">Enterprise</p>
+                <p className="subtitle">Let&apos;s talk</p>
+                <div className="content">
+                  <ul>
+                    <li>Unlimited image generations per month</li>
+                    <li>Priority email support</li>
+                  </ul>
+                  <Link href="/api/auth/signin">Get in touch</Link>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
       </div>
-      <div>
-        <div>
-          <h2>Hobby</h2>
-          <ul>
-            <li>Up to 5 image generations per month</li>
-            <li>Email support</li>
-          </ul>
-          <p>$4.99/mo</p>
-        </div>
-        <div>
-          <h2>Pro</h2>
-          <ul>
-            <li>Up to 20 image generations per month</li>
-            <li>Priority email support</li>
-          </ul>
-          <p>$24.99/mo</p>
-        </div>
-        <div>
-          <h2>Enterprise</h2>
-          <ul>
-            <li>Unlimited image generations per month</li>
-            <li>Priority email support</li>
-          </ul>
-          <Link href="/contact">Get in touch</Link>
-        </div>
-      </div>
-      <Link href="/api/auth/signin">Get Started</Link>
-    </div>
+    </section>
   );
 }
