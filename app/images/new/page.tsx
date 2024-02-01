@@ -11,9 +11,9 @@ export default function New() {
   const [icon, setIcon] = useState("");
 
   return (
-    <section className="w-full py-12 md:py-24 lg:py-32 xl:py-48">
-      <div className="flex flex-row justify-center w-full">
-        <div className="flex flex-col space-y-4 w-2/3">
+    <section>
+      <div>
+        <div>
           <TextInput
             label="title"
             name="title"
