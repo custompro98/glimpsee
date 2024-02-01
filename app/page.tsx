@@ -1,6 +1,5 @@
 import { getServerSession } from "next-auth";
 import Link from "next/link";
-import { Keyword } from "./api/og/route";
 
 export default async function Home() {
   const session = await getServerSession();
