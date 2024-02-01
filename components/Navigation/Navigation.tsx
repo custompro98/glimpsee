@@ -13,7 +13,9 @@ export default async function Navigation() {
     >
       <div className="navbar-brand">
         <Link className="navbar-item" href="/">
-          <span className="is-size-2 has-text-weight-medium">Glimpsee</span>
+          <span className="is-size-2 has-text-weight-medium">
+            Glimp<span className="has-text-primary">see</span>
+          </span>
         </Link>
 
         <a

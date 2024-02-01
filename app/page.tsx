@@ -1,5 +1,6 @@
 import { getServerSession } from "next-auth";
 import Link from "next/link";
+import { Keyword } from "./api/og/route";
 
 export default async function Home() {
   const session = await getServerSession();
@@ -43,18 +44,35 @@ export default async function Home() {
         </div>
         <div className="tile is-parent">
           <article className="tile is-child p-1">
-            <figure className="image is-4by3">
-              <img src="https://bulma.io/images/placeholders/640x480.png" />{" "}
+            <figure className="image is-2by1">
+              <img
+                alt="sample blog post glimpsee image"
+                src={`${process.env.NEXT_PUBLIC_HOSTNAME}/api/og?${
+                  Keyword.Title
+                }=${encodeURIComponent(
+                  "Influencers HATE This One Simple Trick!",
+                )}`}
+              />
             </figure>
           </article>
           <article className="tile is-child p-1">
-            <figure className="image is-4by3">
-              <img src="https://bulma.io/images/placeholders/640x480.png" />{" "}
+            <figure className="image is-2by1">
+              <img
+                alt="sample blog post glimpsee image"
+                src={`${process.env.NEXT_PUBLIC_HOSTNAME}/api/og?${
+                  Keyword.Title
+                }=${encodeURIComponent("Get noticed, FAST.")}`}
+              />
             </figure>
           </article>
           <article className="tile is-child p-1">
-            <figure className="image is-4by3">
-              <img src="https://bulma.io/images/placeholders/640x480.png" />{" "}
+            <figure className="image is-2by1">
+              <img
+                alt="sample blog post glimpsee image"
+                src={`${process.env.NEXT_PUBLIC_HOSTNAME}/api/og?${
+                  Keyword.Title
+                }=${encodeURIComponent("The Best Time to Plant a Tree...")}`}
+              />
             </figure>
           </article>
         </div>
