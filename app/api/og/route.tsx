@@ -3,7 +3,7 @@ import { URLSearchParams } from "url";
 
 export const runtime = "edge";
 
-export enum Keyword {
+enum Keyword {
   Avatar = "avatar",
   Title = "title",
   Id = "id",
