@@ -32,6 +32,9 @@ export default async function Images({
 
   return (
     <section className="section is-medium container">
+      <Link href="/images/new" className="button is-primary is-light mb-4">
+        Create
+      </Link>
       <div className="table-container">
         <table className="table is-striped is-hoverable is-fullwidth">
           <thead>
