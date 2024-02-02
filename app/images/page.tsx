@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { list } from "./actions";
 import { getServerSession } from "next-auth";
+import Icon from "@mdi/react";
+import { mdiDelete, mdiPencil } from "@mdi/js";
 
 enum SearchParamKeys {
   PAGE = "page",
@@ -29,15 +31,15 @@ export default async function Images({
   const listResults = await list(session.user.email, { page });
 
   return (
-    <section>
-      <div>
-        <table>
+    <section className="section is-medium container">
+      <div className="table-container">
+        <table className="table is-striped is-hoverable is-fullwidth">
           <thead>
             <tr>
               <th scope="col">Title</th>
               <th scope="col">Background Color</th>
-              <th scope="col">Icon</th>
-              <th></th>
+              <th scope="col"></th>
+              <th scope="col"></th>
             </tr>
           </thead>
           <tbody>
@@ -50,28 +52,28 @@ export default async function Images({
                     <Link href={image.og_image_blog.icon}>Avatar</Link>
                   </td>
                   <td>
-                    <div>
-                      <img src="/pencil.svg" height="16px" width="16px" />
-                      <img src="/trash.svg" height="16px" width="16px" />
-                    </div>
+                    <span className="icon">
+                      <Icon path={mdiPencil} size={1} />
+                    </span>
+                    <span className="icon">
+                      <Icon path={mdiDelete} size={1} />
+                    </span>
                   </td>
                 </tr>
               );
             })}
           </tbody>
         </table>
-        <div>
-          {(listResults.hasPrev && (
-            <button>
-              <Link href={`/images?page=${page - 1}`}>Prev</Link>
-            </button>
-          )) || <div></div>}
-          {(listResults.hasNext && (
-            <button>
-              <Link href={`/images?page=${page + 1}`}>Next</Link>
-            </button>
-          )) || <div></div>}
-        </div>
+        {(listResults.hasPrev && (
+          <button className="button">
+            <Link href={`/images?page=${page - 1}`}>Prev</Link>
+          </button>
+        )) || <div></div>}
+        {(listResults.hasNext && (
+          <button className="button">
+            <Link href={`/images?page=${page + 1}`}>Next</Link>
+          </button>
+        )) || <div></div>}
       </div>
     </section>
   );

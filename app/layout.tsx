@@ -13,7 +13,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="has-navbar-fixed-top">
+    <html lang="en">
       <head>
         <link
           rel="stylesheet"
@@ -26,7 +26,7 @@ export default function RootLayout({
           // />
         }
       </head>
-      <body className={inter.className}>
+      <body className={`${inter.className} has-navbar-fixed-top`}>
         <SessionProvider>
           <header>
             <Navigation />

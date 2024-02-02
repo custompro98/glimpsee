@@ -4,13 +4,13 @@ import Link from "next/link";
 
 export default function Pricing() {
   return (
-    <section className="container">
-      <div className="hero is-fullheight-with-navbar pt-6">
+    <section className="section container">
+      <div className="hero is-fullheight-with-navbar">
         <div className="hero-body">
           <div className="tile is-ancestor is-vertical">
             <div className="tile is-parent box">
               <article className="tile is-child notification is-light">
-                <p className="title">Hobby</p>
+                <p className="title">Quickstart</p>
                 <p className="subtitle">$4.99/mo</p>
                 <div className="content">
                   <ul>
@@ -24,7 +24,7 @@ export default function Pricing() {
             <div className="tile is-parent box">
               <article className="tile is-child notification is-info">
                 <p className="title">
-                  Pro
+                  Growth
                   <span className="icon is-pulled-right">
                     <Icon path={mdiStar} size={1} />
                   </span>
@@ -32,7 +32,7 @@ export default function Pricing() {
                 <p className="subtitle">$24.99/mo</p>
                 <div className="content">
                   <ul>
-                    <li>Up to 20 image generations per month</li>
+                    <li>Up to 30 image generations per month</li>
                     <li>Priority email support</li>
                   </ul>
                   <Link href="/api/auth/signin">Get started</Link>
