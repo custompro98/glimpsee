@@ -24,8 +24,8 @@ export default async function Home() {
               </Link>
             )}
             {isSignedIn && (
-              <Link href="/images" className="button is-primary is-large">
-                My images
+              <Link href="/glimps" className="button is-primary is-large">
+                My Glimps
               </Link>
             )}
           </div>
@@ -36,7 +36,7 @@ export default async function Home() {
           <h2 className="is-size-2 has-text-weight-medium">Why Glimpsee?</h2>
           <p className="is-size-5">
             Glimpsee helps you create beautiful and engaging OpenGraph images
-            for your website. These images are used when your website is shared
+            for your website. These Glimps are used when your website is shared
             on social media platforms, making them an essential part of your
             website&apos;s SEO.
           </p>

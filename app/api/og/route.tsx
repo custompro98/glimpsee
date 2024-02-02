@@ -97,7 +97,7 @@ function getSearchParam(
 //             });
 //         });
 //
-//         return NextResponse.redirect(`${env.NEXT_PUBLIC_HOSTNAME}/images`);
+//         return NextResponse.redirect(`${env.NEXT_PUBLIC_HOSTNAME}/glimps`);
 //     } catch (e: any) {
 //         console.log(`Failed to create image: ${e.message}`);
 //         return new Response("Internal server error", { status: 500 });

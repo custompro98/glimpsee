@@ -32,7 +32,7 @@ export default async function Images({
 
   return (
     <section className="section is-medium container">
-      <Link href="/images/new" className="button is-primary is-light mb-4">
+      <Link href="/glimps/new" className="button is-primary is-light mb-4">
         Create
       </Link>
       <div className="table-container">
@@ -69,12 +69,12 @@ export default async function Images({
         </table>
         {(listResults.hasPrev && (
           <button className="button">
-            <Link href={`/images?page=${page - 1}`}>Prev</Link>
+            <Link href={`/glimps?page=${page - 1}`}>Prev</Link>
           </button>
         )) || <div></div>}
         {(listResults.hasNext && (
           <button className="button">
-            <Link href={`/images?page=${page + 1}`}>Next</Link>
+            <Link href={`/glimps?page=${page + 1}`}>Next</Link>
           </button>
         )) || <div></div>}
       </div>

@@ -14,7 +14,7 @@ export default function Pricing() {
                 <p className="subtitle">$4.99/mo</p>
                 <div className="content">
                   <ul>
-                    <li>Up to 5 image generations per month</li>
+                    <li>Up to 5 Glimp generations per month</li>
                     <li>Email support</li>
                   </ul>
                   <Link href="/api/auth/signin">Get started</Link>
@@ -32,7 +32,7 @@ export default function Pricing() {
                 <p className="subtitle">$24.99/mo</p>
                 <div className="content">
                   <ul>
-                    <li>Up to 30 image generations per month</li>
+                    <li>Up to 30 Glimp generations per month</li>
                     <li>Priority email support</li>
                   </ul>
                   <Link href="/api/auth/signin">Get started</Link>
@@ -45,7 +45,7 @@ export default function Pricing() {
                 <p className="subtitle">Let&apos;s talk</p>
                 <div className="content">
                   <ul>
-                    <li>Unlimited image generations per month</li>
+                    <li>Unlimited Glimp generations per month</li>
                     <li>Priority email support</li>
                   </ul>
                   <Link href="/api/auth/signin">Get in touch</Link>

@@ -33,9 +33,11 @@ export default async function Navigation() {
 
       <div id="navbar" className="navbar-menu">
         {isSignedIn && (
-          <Link className="navbar-item" href="/images">
-            My images
-          </Link>
+          <>
+            <Link className="navbar-item" href="/glimps">
+              Glimps
+            </Link>
+          </>
         )}
 
         <div className="navbar-start">
