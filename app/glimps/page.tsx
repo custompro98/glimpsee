@@ -32,9 +32,11 @@ export default async function Images({
 
   return (
     <section className="container">
-      <Link href="/glimps/new" className="button is-primary is-light mb-4">
-        Create
-      </Link>
+      <div className="field is-grouped is-grouped-right">
+        <Link href="/glimps/new" className="button is-primary">
+          Create
+        </Link>
+      </div>
       <div className="table-container">
         <table className="table is-striped is-hoverable is-fullwidth">
           <thead>
