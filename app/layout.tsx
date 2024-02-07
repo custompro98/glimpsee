@@ -26,7 +26,9 @@ export default function RootLayout({
           // />
         }
       </head>
-      <body className={`${inter.className} has-navbar-fixed-top`}>
+      <body
+        className={`${inter.className} has-navbar-fixed-top hero is-fullheight`}
+      >
         <SessionProvider>
           <header>
             <Navigation />

@@ -31,7 +31,7 @@ export default async function Images({
   const listResults = await list(session.user.email, { page });
 
   return (
-    <section className="section is-medium container">
+    <section className="container">
       <Link href="/glimps/new" className="button is-primary is-light mb-4">
         Create
       </Link>

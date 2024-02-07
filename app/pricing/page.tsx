@@ -4,8 +4,8 @@ import Link from "next/link";
 
 export default function Pricing() {
   return (
-    <section className="section container">
-      <div className="hero is-fullheight-with-navbar">
+    <section className="container">
+      <div className="hero">
         <div className="hero-body">
           <div className="tile is-ancestor is-vertical">
             <div className="tile is-parent box">

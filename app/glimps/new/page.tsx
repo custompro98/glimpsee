@@ -11,7 +11,7 @@ export default function New() {
   const [icon, setIcon] = useState("");
 
   return (
-    <section>
+    <section className="container">
       <div>
         <div>
           <TextInput
