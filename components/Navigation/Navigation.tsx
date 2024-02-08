@@ -1,9 +1,11 @@
 import Link from "next/link";
 import { getServerSession } from "next-auth";
 
-interface Props {}
+interface Props {
+  currentRoute: string;
+}
 
-export default async function Navigation({}: Props) {
+export default async function Navigation({ currentRoute }: Props) {
   const session = await getServerSession();
   const isSignedIn = Boolean(session?.user);
 
@@ -36,14 +38,28 @@ export default async function Navigation({}: Props) {
       <div id="navbar" className="navbar-menu">
         {isSignedIn && (
           <>
-            <Link className="navbar-item" href="/glimps">
+            <Link
+              className={`navbar-item ${
+                currentRoute.startsWith("/glimps")
+                  ? "has-text-primary is-underlined"
+                  : ""
+              }`}
+              href="/glimps"
+            >
               Glimps
             </Link>
           </>
         )}
 
         <div className="navbar-start">
-          <Link className="navbar-item" href="/pricing">
+          <Link
+            className={`navbar-item ${
+              currentRoute.startsWith("/pricing")
+                ? "has-text-primary is-underlined"
+                : ""
+            }`}
+            href="/pricing"
+          >
             Pricing
           </Link>
         </div>
