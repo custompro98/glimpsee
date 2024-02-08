@@ -18,10 +18,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <link
-          rel="stylesheet"
-          href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
-        />
+        <link rel="stylesheet" href="/css/styles.css" />
+
         {
           // <meta
           //     property="og:image"

@@ -22,7 +22,7 @@ export default function Pricing() {
               </article>
             </div>
             <div className="tile is-parent box">
-              <article className="tile is-child notification is-info">
+              <article className="tile is-child notification is-primary">
                 <p className="title">
                   Growth
                   <span className="icon is-pulled-right">
