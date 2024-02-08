@@ -36,7 +36,7 @@ export async function GET(request: Request) {
             src={
               avatar
                 ? decodeURIComponent(avatar)
-                : "http://localhost:3000/argo.png"
+                : `${process.env.NEXT_PUBLIC_HOSTNAME}/argo.png`
             }
             width="64px"
             height="64px"
