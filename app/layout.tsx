@@ -4,7 +4,6 @@ import { Inter } from "next/font/google";
 import { SessionProvider } from "next-auth/react";
 import Navigation from "@/components/Navigation";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -13,8 +12,6 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const currentRoute = usePathname();
-
   return (
     <html lang="en">
       <head>
@@ -32,7 +29,7 @@ export default function RootLayout({
       >
         <SessionProvider>
           <header>
-            <Navigation currentRoute={currentRoute} />
+            <Navigation />
           </header>
           <main>{children}</main>
           <footer className="footer has-background-dark">
