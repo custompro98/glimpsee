@@ -44,7 +44,7 @@ export default function New() {
           className="input"
           type="text"
           name="icon"
-          placeholder="https://exmaple.com/my-public-image.png"
+          placeholder="https://example.com/my-public-image.png"
           value={icon}
           onChange={(e) => {
             setIcon(e.target.value);
