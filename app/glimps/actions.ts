@@ -2,7 +2,7 @@
 
 import { db } from "@/lib/database";
 import { ogImageBlogs, ogImages, users } from "@/lib/database/tables";
-import { desc, eq } from "drizzle-orm";
+import { and, desc, eq, isNull } from "drizzle-orm";
 
 interface ListResult<T> {
   records: T[];
@@ -25,7 +25,7 @@ export async function list(
     .from(ogImages)
     .innerJoin(ogImageBlogs, eq(ogImages.id, ogImageBlogs.ogImageId))
     .innerJoin(users, eq(users.email, email))
-    .where(eq(ogImages.user_id, users.id))
+    .where(and(eq(ogImages.user_id, users.id), isNull(ogImages.deletedAt)))
     .offset(offset)
     .limit(limit + 1)
     .orderBy(desc(ogImages.createdAt))
