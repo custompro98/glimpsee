@@ -46,7 +46,7 @@ export default async function Home() {
             <figure className="image is-2by1">
               <img
                 alt="sample blog post glimpsee image"
-                src={`${process.env.NEXT_PUBLIC_HOSTNAME}/api/og?id=${50}`}
+                src={`${process.env.NEXT_PUBLIC_HOSTNAME}/api/og?id=${51}`}
               />
             </figure>
           </article>
@@ -54,9 +54,7 @@ export default async function Home() {
             <figure className="image is-2by1">
               <img
                 alt="sample blog post glimpsee image"
-                src={`${
-                  process.env.NEXT_PUBLIC_HOSTNAME
-                }/api/og?title=${encodeURIComponent("Get noticed, FAST.")}`}
+                src={`${process.env.NEXT_PUBLIC_HOSTNAME}/api/og?id=${52}`}
               />
             </figure>
           </article>
@@ -64,11 +62,7 @@ export default async function Home() {
             <figure className="image is-2by1">
               <img
                 alt="sample blog post glimpsee image"
-                src={`${
-                  process.env.NEXT_PUBLIC_HOSTNAME
-                }/api/og?title=${encodeURIComponent(
-                  "The Best Time to Plant a Tree...",
-                )}`}
+                src={`${process.env.NEXT_PUBLIC_HOSTNAME}/api/og?id=${53}`}
               />
             </figure>
           </article>
