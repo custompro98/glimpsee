@@ -16,7 +16,7 @@ enum Keyword {
 export async function GET(request: Request) {
   try {
     const { searchParams } = new URL(request.url);
-    const idParam = z
+    const idParam = z.coerce
       .number()
       .safeParse(getSearchParam(searchParams, Keyword.Id));
 

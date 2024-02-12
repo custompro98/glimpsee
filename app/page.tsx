@@ -46,11 +46,7 @@ export default async function Home() {
             <figure className="image is-2by1">
               <img
                 alt="sample blog post glimpsee image"
-                src={`${
-                  process.env.NEXT_PUBLIC_HOSTNAME
-                }/api/og?title=${encodeURIComponent(
-                  "Influencers HATE This One Simple Trick!",
-                )}`}
+                src={`${process.env.NEXT_PUBLIC_HOSTNAME}/api/og?id=${50}`}
               />
             </figure>
           </article>
