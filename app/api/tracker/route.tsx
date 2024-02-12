@@ -1,34 +1,52 @@
 import { URLSearchParams } from "url";
-import { redirect } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
+import { z } from "zod";
+import { eq, and, isNull } from "drizzle-orm";
+import { db } from "@/lib/database";
+import { ogImageBlogs, ogImages } from "@/lib/database/tables";
+import { isPresent } from "@/lib/util";
 
 export const runtime = "edge";
 
 export async function GET(request: Request) {
-    const { searchParams } = new URL(request.url);
-    const id = getSearchParam(searchParams, "id");
+  const { searchParams } = new URL(request.url);
+  const idParam = z.number().safeParse(getSearchParam(searchParams, "id"));
 
-    console.log("===", id, "===");
+  if (!idParam.success) {
+    return notFound();
+  }
 
-    const title = "My Blog Post is Super Good";
-    const avatar =
-        "https://lh3.googleusercontent.com/a/ACg8ocJ4477pnN5d6B3xu7EAB-KTgIrcDP3BDwKcPYntEsQ12DE=s96-c";
+  const [ogImageRecord] = await db
+    .select()
+    .from(ogImages)
+    .innerJoin(ogImageBlogs, eq(ogImages.id, ogImageBlogs.ogImageId))
+    .where(and(eq(ogImages.id, idParam.data), isNull(ogImages.deletedAt)))
+    .limit(1)
+    .execute();
 
-    redirect(
-        `${process.env.NEXT_PUBLIC_HOSTNAME}/api/og?title=${encodeURIComponent(
-            title,
-        )}&avatar=${encodeURIComponent(avatar)}`,
-    );
+  if (!isPresent(ogImageRecord)) {
+    return notFound();
+  }
+
+  const title = ogImageRecord.og_image_blog.title;
+  const avatar = ogImageRecord.og_image_blog.icon;
+
+  redirect(
+    `${process.env.NEXT_PUBLIC_HOSTNAME}/api/og?title=${encodeURIComponent(
+      title,
+    )}&avatar=${encodeURIComponent(avatar)}`,
+  );
 }
 
 function getSearchParam(
-    searchParams: URLSearchParams,
-    keyword: string,
+  searchParams: URLSearchParams,
+  keyword: string,
 ): string | undefined {
-    const hasKeyword = searchParams.has(keyword);
+  const hasKeyword = searchParams.has(keyword);
 
-    if (!hasKeyword) {
-        return;
-    }
+  if (!hasKeyword) {
+    return;
+  }
 
-    return searchParams.get(keyword)?.slice(0, 100);
+  return searchParams.get(keyword)?.slice(0, 100);
 }

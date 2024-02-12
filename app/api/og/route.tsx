@@ -69,37 +69,3 @@ function getSearchParam(
 
   return searchParams.get(keyword)?.slice(0, 100);
 }
-
-// export async function POST(request: Request) {
-//     try {
-//         const form = await request.formData();
-//
-//         const title = form.get("title") as string;
-//         const backgroundColor = (form.get("background") as string) || undefined;
-//         const icon = form.get("icon") as string;
-//
-//         await db.transaction(async (trx) => {
-//             const [ogImageRecord] = await trx
-//                 .insert(ogImages)
-//                 .values({
-//                     // TODO: get the user id from the session
-//                     user_id: 5,
-//                     type: "blog",
-//                 })
-//                 .returning()
-//                 .execute();
-//
-//             const ogImageBlogRecord = await trx.insert(ogImageBlogs).values({
-//                 title,
-//                 backgroundColor,
-//                 icon,
-//                 ogImageId: ogImageRecord.id,
-//             });
-//         });
-//
-//         return NextResponse.redirect(`${env.NEXT_PUBLIC_HOSTNAME}/glimps`);
-//     } catch (e: any) {
-//         console.log(`Failed to create image: ${e.message}`);
-//         return new Response("Internal server error", { status: 500 });
-//     }
-// }
