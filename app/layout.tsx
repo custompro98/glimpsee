@@ -14,12 +14,10 @@ export default async function RootLayout({
       <head>
         <link rel="stylesheet" href="/css/styles.css" />
 
-        {
-          // <meta
-          //     property="og:image"
-          //     content={`${process.env.NEXT_PUBLIC_HOSTNAME}/api/tracker?id=${some-id}`}
-          // />
-        }
+        <meta
+          property="og:image"
+          content={`${process.env.NEXT_PUBLIC_HOSTNAME}/api/tracker?id=${50}`}
+        />
       </head>
       <body
         className={`${inter.className} has-navbar-fixed-top hero is-fullheight`}
