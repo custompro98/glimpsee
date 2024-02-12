@@ -1,19 +1,43 @@
+import { z } from "zod";
+import { and, eq, isNull } from "drizzle-orm";
+import { notFound } from "next/navigation";
 import { ImageResponse } from "next/og";
 import { URLSearchParams } from "url";
+import { db } from "@/lib/database";
+import { ogImageBlogs, ogImages } from "@/lib/database/tables";
+import { isPresent } from "@/lib/util";
 
 export const runtime = "edge";
 
 enum Keyword {
-  Avatar = "avatar",
-  Title = "title",
   Id = "id",
 }
 
 export async function GET(request: Request) {
   try {
     const { searchParams } = new URL(request.url);
-    const title = getSearchParam(searchParams, Keyword.Title);
-    const avatar = getSearchParam(searchParams, Keyword.Avatar);
+    const idParam = z
+      .number()
+      .safeParse(getSearchParam(searchParams, Keyword.Id));
+
+    if (!idParam.success) {
+      return notFound();
+    }
+
+    const [ogImageRecord] = await db
+      .select()
+      .from(ogImages)
+      .innerJoin(ogImageBlogs, eq(ogImages.id, ogImageBlogs.ogImageId))
+      .where(and(eq(ogImages.id, idParam.data), isNull(ogImages.deletedAt)))
+      .limit(1)
+      .execute();
+
+    if (!isPresent(ogImageRecord)) {
+      return notFound();
+    }
+
+    const title = ogImageRecord.og_image_blog.title;
+    const avatar = ogImageRecord.og_image_blog.icon;
 
     return new ImageResponse(
       (

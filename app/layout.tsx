@@ -16,7 +16,7 @@ export default async function RootLayout({
 
         <meta
           property="og:image"
-          content={`${process.env.NEXT_PUBLIC_HOSTNAME}/api/tracker?id=${50}`}
+          content={`${process.env.NEXT_PUBLIC_HOSTNAME}/api/og?id=${50}`}
         />
       </head>
       <body
