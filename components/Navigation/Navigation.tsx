@@ -1,13 +1,13 @@
+import { auth } from "@/auth";
 import Link from "next/link";
-import { getServerSession } from "next-auth";
 
-interface Props {
-  currentRoute: string;
-}
+interface Props {}
 
-export default async function Navigation({ currentRoute }: Props) {
-  const session = await getServerSession();
+export default async function Navigation({}: Props) {
+  const session = await auth();
   const isSignedIn = Boolean(session?.user);
+
+  const currentRoute = "";
 
   return (
     <nav

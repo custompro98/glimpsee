@@ -1,8 +1,8 @@
-import { getServerSession } from "next-auth";
+import { auth } from "@/auth";
 import Link from "next/link";
 
 export default async function Home() {
-  const session = await getServerSession();
+  const session = await auth();
   const isSignedIn = Boolean(session?.user);
 
   return (

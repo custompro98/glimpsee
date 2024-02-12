@@ -1,8 +1,8 @@
 import Link from "next/link";
 import { list } from "./actions";
-import { getServerSession } from "next-auth";
 import Icon from "@mdi/react";
 import { mdiDelete, mdiPencil } from "@mdi/js";
+import { auth } from "@/auth";
 
 enum SearchParamKeys {
   PAGE = "page",
@@ -17,7 +17,7 @@ export default async function Images({
 }: {
   searchParams: SearchParams;
 }) {
-  const session = await getServerSession();
+  const session = await auth();
 
   if (!session?.user?.email) {
     return (
