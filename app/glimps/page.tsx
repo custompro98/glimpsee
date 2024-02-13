@@ -43,7 +43,8 @@ export default async function Images({
           <thead>
             <tr>
               <th scope="col">Title</th>
-              <th scope="col">Background Color</th>
+              <th scope="col">Text color</th>
+              <th scope="col">Background color</th>
               <th scope="col"></th>
               <th scope="col"></th>
             </tr>
@@ -53,6 +54,7 @@ export default async function Images({
               return (
                 <tr key={image.og_images.id}>
                   <th scope="row">{image.og_image_blog.title}</th>
+                  <td>{image.og_image_blog.textColor}</td>
                   <td>{image.og_image_blog.backgroundColor}</td>
                   <td>
                     <Link href={image.og_image_blog.icon}>Avatar</Link>
