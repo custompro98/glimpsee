@@ -5,6 +5,8 @@ import { db } from "@/lib/database";
 import { ogImageBlogs, ogImages } from "@/lib/database/tables";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
+import { auth } from "@/auth";
+import { isPresent } from "@/lib/util";
 
 const schema = z.object({
   title: z.string(),
@@ -27,12 +29,18 @@ export async function create(formData: FormData) {
     };
   }
 
+  const session = await auth();
+  const userId = session?.user?.id;
+
+  if (!isPresent(userId)) {
+    throw new Error("Please sign in.");
+  }
+
   await db.transaction(async (trx) => {
     const [ogImageRecord] = await trx
       .insert(ogImages)
       .values({
-        // TODO: get the user id from the session
-        user_id: 5,
+        user_id: parseInt(userId || "", 10),
         type: "blog",
       })
       .returning()
