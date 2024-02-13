@@ -18,6 +18,18 @@ export default function New() {
           />
         </div>
         <div className="field">
+          <label htmlFor="text" className="label">
+            Text color
+          </label>
+          <input
+            className="input"
+            type="text"
+            name="text"
+            placeholder="#000000"
+            required
+          />
+        </div>
+        <div className="field">
           <label htmlFor="background" className="label">
             Background color
           </label>

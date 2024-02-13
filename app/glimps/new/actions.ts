@@ -11,6 +11,7 @@ import { isPresent } from "@/lib/util";
 const schema = z.object({
   title: z.string(),
   background: z.string(),
+  text: z.string(),
   icon: z.string().url(),
 });
 
@@ -20,6 +21,7 @@ export async function create(formData: FormData) {
   const validatedInput = schema.safeParse({
     title: formData.get("title"),
     background: formData.get("background"),
+    text: formData.get("text"),
     icon: formData.get("icon"),
   });
 
@@ -49,6 +51,7 @@ export async function create(formData: FormData) {
     await trx.insert(ogImageBlogs).values({
       title: validatedInput.data.title,
       backgroundColor: validatedInput.data.background,
+      textColor: validatedInput.data.text,
       icon: validatedInput.data.icon,
       ogImageId: ogImageRecord.id,
     });

@@ -3,6 +3,7 @@ import { list } from "./actions";
 import Icon from "@mdi/react";
 import { mdiDelete, mdiPencil } from "@mdi/js";
 import { auth } from "@/auth";
+import { isPresent } from "@/lib/util";
 
 enum SearchParamKeys {
   PAGE = "page",
@@ -19,7 +20,7 @@ export default async function Images({
 }) {
   const session = await auth();
 
-  if (!session?.user?.email) {
+  if (!isPresent(session?.user?.id)) {
     return (
       <div>
         Please <Link href="/api/auth/signin">sign in</Link>
@@ -28,7 +29,7 @@ export default async function Images({
   }
 
   const page = parseInt(searchParams[SearchParamKeys.PAGE] || "1");
-  const listResults = await list(session.user.email, { page });
+  const listResults = await list(session.user.id, { page });
 
   return (
     <section className="container">

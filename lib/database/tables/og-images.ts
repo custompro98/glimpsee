@@ -25,6 +25,9 @@ export const ogImageBlogs = sqliteTable(
       .notNull()
       .references(() => ogImages.id),
     title: text("title", { mode: "text" }).notNull(),
+    textColor: text("text_color", { mode: "text" })
+      .notNull()
+      .default("#000000"),
     backgroundColor: text("background_color", { mode: "text" })
       .notNull()
       .default("#FFFFFF"),

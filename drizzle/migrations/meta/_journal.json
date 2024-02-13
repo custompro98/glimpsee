@@ -29,7 +29,13 @@
       "when": 1707856611505,
       "tag": "0003_nice_forge",
       "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "5",
+      "when": 1707857717396,
+      "tag": "0004_pale_justin_hammer",
+      "breakpoints": true
     }
   ]
 }
-

@@ -64,5 +64,28 @@ export const {
 
       return true;
     },
+    async jwt({ token }) {
+      if (!isPresent(token.email)) {
+        return token;
+      }
+
+      const [existingUser] = await db
+        .select()
+        .from(tables.users)
+        .where(eq(tables.users.email, token.email))
+        .limit(1)
+        .execute();
+
+      token.id = existingUser.id;
+
+      return token;
+    },
+    async session({ session, token }) {
+      if (token.id) {
+        session.user.id = `${token.id}`;
+      }
+
+      return session;
+    },
   },
 });

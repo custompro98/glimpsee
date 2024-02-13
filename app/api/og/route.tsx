@@ -37,15 +37,16 @@ export async function GET(request: Request) {
 
   const title = ogImageRecord.og_image_blog.title;
   const avatar = ogImageRecord.og_image_blog.icon;
-  const background = ogImageRecord.og_image_blog.backgroundColor;
+  const textColor = ogImageRecord.og_image_blog.textColor;
+  const backgroundColor = ogImageRecord.og_image_blog.backgroundColor;
 
   return new ImageResponse(
     (
       <div
         style={{
           fontSize: 40,
-          color: "black",
-          background: background,
+          color: textColor,
+          background: backgroundColor,
           width: "100%",
           height: "100%",
           padding: "50px 200px",

@@ -1,7 +1,7 @@
 "use server";
 
 import { db } from "@/lib/database";
-import { ogImageBlogs, ogImages, users } from "@/lib/database/tables";
+import { ogImageBlogs, ogImages } from "@/lib/database/tables";
 import { and, desc, eq, isNull } from "drizzle-orm";
 
 interface ListResult<T> {
@@ -11,7 +11,7 @@ interface ListResult<T> {
 }
 
 export async function list(
-  email: string,
+  userId: string,
   pagination: { page?: number; limit?: number },
 ) {
   "use server";
@@ -24,8 +24,12 @@ export async function list(
     .select()
     .from(ogImages)
     .innerJoin(ogImageBlogs, eq(ogImages.id, ogImageBlogs.ogImageId))
-    .innerJoin(users, eq(users.email, email))
-    .where(and(eq(ogImages.user_id, users.id), isNull(ogImages.deletedAt)))
+    .where(
+      and(
+        eq(ogImages.user_id, parseInt(userId, 10)),
+        isNull(ogImages.deletedAt),
+      ),
+    )
     .offset(offset)
     .limit(limit + 1)
     .orderBy(desc(ogImages.createdAt))
