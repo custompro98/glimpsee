@@ -23,7 +23,7 @@ export async function list(
   const countQuery = db
     .select({
       ogImageId: ogImageViews.ogImageId,
-      viewCount: count().as("viewCount"),
+      impressions: count().as("impressions"),
     })
     .from(ogImageViews)
     .groupBy(ogImageViews.ogImageId)

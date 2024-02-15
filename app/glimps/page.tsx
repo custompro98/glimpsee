@@ -45,7 +45,7 @@ export default async function Images({
               <th scope="col">Title</th>
               <th scope="col">Text color</th>
               <th scope="col">Background color</th>
-              <th scope="col">View count</th>
+              <th scope="col">Impressions</th>
               <th scope="col"></th>
             </tr>
           </thead>
@@ -66,7 +66,7 @@ export default async function Images({
                   </th>
                   <td>{image.og_image_blog.textColor}</td>
                   <td>{image.og_image_blog.backgroundColor}</td>
-                  <td>{image.counts?.viewCount || 0}</td>
+                  <td>{image.counts?.impressions || 0}</td>
                   <td>
                     <span className="icon">
                       <Icon path={mdiPencil} size={1} />
