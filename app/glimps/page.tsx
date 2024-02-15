@@ -68,9 +68,11 @@ export default async function Images({
                   <td>{image.og_image_blog.backgroundColor}</td>
                   <td>{image.counts?.impressions || 0}</td>
                   <td>
-                    <span className="icon">
-                      <Icon path={mdiPencil} size={1} />
-                    </span>
+                    <Link href={`/glimps/${image.og_images.id}`}>
+                      <span className="icon">
+                        <Icon path={mdiPencil} size={1} />
+                      </span>
+                    </Link>
                     <span className="icon">
                       <Icon path={mdiDelete} size={1} />
                     </span>

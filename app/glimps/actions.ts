@@ -36,7 +36,7 @@ export async function list(
     .leftJoin(countQuery, eq(ogImages.id, countQuery.ogImageId))
     .where(
       and(
-        eq(ogImages.user_id, parseInt(userId, 10)),
+        eq(ogImages.userId, parseInt(userId, 10)),
         isNull(ogImages.deletedAt),
       ),
     )

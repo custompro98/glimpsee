@@ -8,7 +8,7 @@ export const ogImages = sqliteTable(
     id: integer("id", { mode: "number" }).primaryKey({
       autoIncrement: true,
     }),
-    user_id: integer("user_id", { mode: "number" })
+    userId: integer("user_id", { mode: "number" })
       .notNull()
       .references(() => users.id),
     type: text("type", { enum: ["blog"] }).notNull(),
@@ -21,7 +21,7 @@ export const ogImages = sqliteTable(
   },
   (table) => {
     return {
-      userIdIdx: index("og_image_user_id_idx").on(table.user_id),
+      userIdIdx: index("og_image_user_id_idx").on(table.userId),
     };
   },
 );
