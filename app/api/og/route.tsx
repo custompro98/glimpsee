@@ -6,6 +6,7 @@ import { URLSearchParams } from "url";
 import { db } from "@/lib/database";
 import { ogImageBlogs, ogImages } from "@/lib/database/tables";
 import { isPresent } from "@/lib/util";
+import { headers } from "next/headers";
 
 export const runtime = "edge";
 
@@ -34,6 +35,8 @@ export async function GET(request: Request) {
   if (!isPresent(ogImageRecord)) {
     return notFound();
   }
+
+  console.log(headers().get("x-forwarded-for"));
 
   const title = ogImageRecord.og_image_blog.title;
   const avatar = ogImageRecord.og_image_blog.icon;
