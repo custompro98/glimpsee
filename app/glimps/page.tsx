@@ -45,7 +45,7 @@ export default async function Images({
               <th scope="col">Title</th>
               <th scope="col">Text color</th>
               <th scope="col">Background color</th>
-              <th scope="col"></th>
+              <th scope="col">View count</th>
               <th scope="col"></th>
             </tr>
           </thead>
@@ -53,12 +53,20 @@ export default async function Images({
             {listResults.records.map((image) => {
               return (
                 <tr key={image.og_images.id}>
-                  <th scope="row">{image.og_image_blog.title}</th>
+                  <th scope="row">
+                    {Boolean(image.og_image_blog.icon) && (
+                      <img
+                        className="mr-2"
+                        src={image.og_image_blog.icon}
+                        height="16px"
+                        width="16px"
+                      />
+                    )}
+                    {image.og_image_blog.title}
+                  </th>
                   <td>{image.og_image_blog.textColor}</td>
                   <td>{image.og_image_blog.backgroundColor}</td>
-                  <td>
-                    <Link href={image.og_image_blog.icon}>Avatar</Link>
-                  </td>
+                  <td>{image.counts?.viewCount || 0}</td>
                   <td>
                     <span className="icon">
                       <Icon path={mdiPencil} size={1} />

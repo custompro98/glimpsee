@@ -1,8 +1,8 @@
 "use server";
 
 import { db } from "@/lib/database";
-import { ogImageBlogs, ogImages } from "@/lib/database/tables";
-import { and, desc, eq, isNull } from "drizzle-orm";
+import { ogImageBlogs, ogImageViews, ogImages } from "@/lib/database/tables";
+import { and, count, desc, eq, isNull } from "drizzle-orm";
 
 interface ListResult<T> {
   records: T[];
@@ -20,10 +20,20 @@ export async function list(
   const limit = pagination.limit || 10;
   const offset = (page - 1) * limit;
 
+  const countQuery = db
+    .select({
+      ogImageId: ogImageViews.ogImageId,
+      viewCount: count().as("viewCount"),
+    })
+    .from(ogImageViews)
+    .groupBy(ogImageViews.ogImageId)
+    .as("counts");
+
   const ogImageRecords = await db
     .select()
     .from(ogImages)
     .innerJoin(ogImageBlogs, eq(ogImages.id, ogImageBlogs.ogImageId))
+    .leftJoin(countQuery, eq(ogImages.id, countQuery.ogImageId))
     .where(
       and(
         eq(ogImages.user_id, parseInt(userId, 10)),
