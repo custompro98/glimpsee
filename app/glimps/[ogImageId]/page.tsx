@@ -23,6 +23,9 @@ export default async function Edit({ params }: { params: Params }) {
 
   return (
     <section className="container">
+      <h1 className="is-size-4 has-text-weight-semibold pb-6">
+        {record.og_image_blog.title}
+      </h1>
       <form action={edit}>
         <input
           className="input"
