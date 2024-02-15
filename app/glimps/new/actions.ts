@@ -42,7 +42,7 @@ export async function create(formData: FormData) {
     const [ogImageRecord] = await trx
       .insert(ogImages)
       .values({
-        user_id: parseInt(userId || "", 10),
+        userId: parseInt(userId || "", 10),
         type: "blog",
       })
       .returning()
