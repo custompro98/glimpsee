@@ -36,11 +36,12 @@ export async function GET(request: Request) {
     return notFound();
   }
 
-  const callerIp = headers().get("x-forwarded-for");
+  const viewerIp = headers().get("x-forwarded-for");
 
-  if (callerIp !== "::1") {
+  if (viewerIp !== "::1") {
     await db.insert(ogImageViews).values({
       ogImageId: ogImageRecord.og_images.id,
+      ipAddress: viewerIp,
     });
   }
 

@@ -57,6 +57,7 @@ export const ogImageViews = sqliteTable(
     ogImageId: integer("og_image_id", { mode: "number" })
       .notNull()
       .references(() => ogImages.id),
+    ipAddress: text("ip_address", { mode: "text" }),
 
     createdAt: integer("created_at", { mode: "timestamp" })
       .notNull()

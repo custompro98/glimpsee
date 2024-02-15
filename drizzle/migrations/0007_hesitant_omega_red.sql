@@ -1,0 +1,1 @@
+ALTER TABLE og_image_views ADD `ip_address` text;
