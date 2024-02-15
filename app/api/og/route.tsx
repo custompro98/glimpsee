@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 import { ImageResponse } from "next/og";
 import { URLSearchParams } from "url";
 import { db } from "@/lib/database";
-import { ogImageBlogs, ogImages } from "@/lib/database/tables";
+import { ogImageBlogs, ogImageViews, ogImages } from "@/lib/database/tables";
 import { isPresent } from "@/lib/util";
 import { headers } from "next/headers";
 
@@ -37,6 +37,12 @@ export async function GET(request: Request) {
   }
 
   const callerIp = headers().get("x-forwarded-for");
+
+  if (callerIp !== "::1") {
+    await db.insert(ogImageViews).values({
+      ogImageId: ogImageRecord.og_images.id,
+    });
+  }
 
   const title = ogImageRecord.og_image_blog.title;
   const avatar = ogImageRecord.og_image_blog.icon;
