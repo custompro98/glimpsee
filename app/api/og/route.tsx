@@ -36,7 +36,7 @@ export async function GET(request: Request) {
     return notFound();
   }
 
-  console.log(headers().get("x-forwarded-for"));
+  const callerIp = headers().get("x-forwarded-for");
 
   const title = ogImageRecord.og_image_blog.title;
   const avatar = ogImageRecord.og_image_blog.icon;

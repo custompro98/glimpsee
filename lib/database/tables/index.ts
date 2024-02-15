@@ -1,2 +1,2 @@
 export { users } from "./users";
-export { ogImages, ogImageBlogs } from "./og-images";
+export { ogImages, ogImageBlogs, ogImageViews } from "./og-images";

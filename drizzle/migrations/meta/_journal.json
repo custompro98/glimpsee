@@ -36,6 +36,20 @@
       "when": 1707857717396,
       "tag": "0004_pale_justin_hammer",
       "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "5",
+      "when": 1708031153487,
+      "tag": "0005_sour_chameleon",
+      "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "5",
+      "when": 1708032153180,
+      "tag": "0006_lame_madrox",
+      "breakpoints": true
     }
   ]
 }
