@@ -3,12 +3,46 @@
 // Coolors scheme
 // https://coolors.co/7e6551-15616d-0a1128-938581-c5d5e4
 
-$blue: #15616D;
-$blue-lighter: #C5D5E4;
-$blue-darker: #0A1128;
-$brown: #7E6551;
-$brown-lighter: #938581;
+// $blue: #15616D;
+// $blue-light: #C5D5E4;
+// $blue-dark: #0A1128;
+// $brown: #7E6551;
+// $brown-light: #938581;
 
-$primary: $blue;
+// Coolors scehme
+// https://coolors.co/89608e-1b2c30-bfbaa6-d56440-84afe6
+
+$orange: #D56440;
+$orange-dark: #8F3B20;
+$orange-light: #E7A894;
+$khaki: #BFBAA6;
+$khaki-dark: #726F63;
+$khaki-darker: #393731;
+$khaki-light: #D8D5C9;
+$khaki-lighter: #EBEAE4;
+$grey: #1B2C30;
+$grey-dark: #222728;
+$grey-darker: #252525;
+$grey-light: #8D9597 ;
+$grey-lighter: #BABFC0;
+$grey-lightest: #E8E9EA;
+$blue: #84AFE6;
+$purple: #89608E;
+$purple-dark: #5F4363;
+$white: #FFFFFF;
+
+$primary: $orange;
+$link: $purple;
+$link-visited: $purple-dark;
+$dark: $grey-darker;
+$text: $grey-dark;
+
+$scheme-main: $khaki;
+$scheme-main-bis: $khaki-light;
+$scheme-main-ter: $khaki-lighter;
+
+$border: $khaki-dark;
+
+$navbar-item-img-max-height: 3.25rem;
 
 @import "./node_modules/bulma/bulma.sass";

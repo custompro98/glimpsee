@@ -69,11 +69,11 @@ export default async function Images({
                   <td>{image.counts?.impressions || 0}</td>
                   <td>
                     <Link href={`/glimps/${image.og_images.id}`}>
-                      <span className="icon">
+                      <span className="icon has-text-dark">
                         <Icon path={mdiPencil} size={1} />
                       </span>
                     </Link>
-                    <span className="icon">
+                    <span className="icon has-text-dark">
                       <Icon path={mdiDelete} size={1} />
                     </span>
                   </td>
@@ -82,16 +82,24 @@ export default async function Images({
             })}
           </tbody>
         </table>
-        {(listResults.hasPrev && (
-          <button className="button">
-            <Link href={`/glimps?page=${page - 1}`}>Prev</Link>
-          </button>
-        )) || <div></div>}
-        {(listResults.hasNext && (
-          <button className="button">
-            <Link href={`/glimps?page=${page + 1}`}>Next</Link>
-          </button>
-        )) || <div></div>}
+        <nav
+          className="pagination is-centered"
+          role="navigation"
+          aria-label="pagination"
+        >
+          <Link
+            className={`pagination-previous ${!listResults.hasPrev ? "is-disabled" : ""}`}
+            href={`/glimps?page=${page - 1}`}
+          >
+            Previous
+          </Link>
+          <Link
+            className={`pagination-next ${!listResults.hasNext ? "is-disabled" : ""}`}
+            href={`/glimps?page=${page + 1}`}
+          >
+            Next
+          </Link>
+        </nav>
       </div>
     </section>
   );

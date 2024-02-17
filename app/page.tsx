@@ -10,7 +10,7 @@ export default async function Home() {
       <section className="hero is-halfheight">
         <div className="hero-body">
           <div>
-            <p className="title">Glimpsee</p>
+            <p className="title is-1">Glimpsee</p>
             <p className="subtitle">
               Generate beautiful social media preview images for your website.
               Customize the title, background, and icon to suit your needs.
@@ -33,7 +33,9 @@ export default async function Home() {
       </section>
       <section className="section has-background-light">
         <div className="container">
-          <h2 className="is-size-2 has-text-weight-medium">Why Glimpsee?</h2>
+          <h2 className="subtitle is-2 has-text-weight-medium">
+            Why Glimpsee?
+          </h2>
           <p className="is-size-5">
             Glimpsee helps you create beautiful and engaging OpenGraph images
             for your website. These Glimps are used when your website is shared

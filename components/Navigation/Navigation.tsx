@@ -11,13 +11,14 @@ export default async function Navigation({}: Props) {
 
   return (
     <nav
-      className="navbar is-fixed-top"
+      className="navbar is-transparent is-fixed-top"
       role="navigation"
       aria-label="main navigation"
     >
       <div className="navbar-brand">
         <Link className="navbar-item" href="/">
-          <span className="is-size-2 has-text-weight-medium">
+          <img src={`${process.env.NEXT_PUBLIC_HOSTNAME}/glimpsee-logo.jpeg`} />
+          <span className="is-size-2 has-text-grey-dark has-text-weight-medium">
             Glimp<span className="has-text-primary">see</span>
           </span>
         </Link>
@@ -40,9 +41,7 @@ export default async function Navigation({}: Props) {
           <>
             <Link
               className={`navbar-item ${
-                currentRoute.startsWith("/glimps")
-                  ? "has-text-primary is-underlined"
-                  : ""
+                currentRoute.startsWith("/glimps") ? "is-underlined" : ""
               }`}
               href="/glimps"
             >
@@ -54,9 +53,7 @@ export default async function Navigation({}: Props) {
         <div className="navbar-start">
           <Link
             className={`navbar-item ${
-              currentRoute.startsWith("/pricing")
-                ? "has-text-primary is-underlined"
-                : ""
+              currentRoute.startsWith("/pricing") ? "is-underlined" : ""
             }`}
             href="/pricing"
           >
@@ -68,7 +65,10 @@ export default async function Navigation({}: Props) {
           <div className="navbar-item">
             <div className="buttons">
               {(isSignedIn && (
-                <Link className="button is-light" href="/api/auth/signout">
+                <Link
+                  className="button is-small is-light"
+                  href="/api/auth/signout"
+                >
                   <strong>Sign out</strong>
                 </Link>
               )) || (

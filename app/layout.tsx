@@ -26,7 +26,7 @@ export default async function RootLayout({
           <Navigation />
         </header>
         <main>{children}</main>
-        <footer className="footer has-background-dark">
+        <footer className="footer has-background-grey-darker">
           <div className="content has-text-centered has-text-light">
             <p>
               <strong className="has-text-light">Glimpsee</strong> by{" "}
