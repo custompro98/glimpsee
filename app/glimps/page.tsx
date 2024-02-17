@@ -55,12 +55,12 @@ export default async function Images({
                 <tr key={image.og_images.id}>
                   <th scope="row">
                     {Boolean(image.og_image_blog.icon) && (
-                      <img
-                        className="mr-2"
-                        src={image.og_image_blog.icon}
-                        height="16px"
-                        width="16px"
-                      />
+                      <figure className="image is-32x32 is-inline-block mr-2">
+                        <img
+                          className="is-rounded"
+                          src={image.og_image_blog.icon}
+                        />
+                      </figure>
                     )}
                     {image.og_image_blog.title}
                   </th>
