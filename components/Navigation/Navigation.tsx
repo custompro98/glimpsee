@@ -17,7 +17,12 @@ export default async function Navigation({}: Props) {
     >
       <div className="navbar-brand">
         <Link className="navbar-item" href="/">
-          <img src={`${process.env.NEXT_PUBLIC_HOSTNAME}/glimpsee-logo.jpeg`} />
+          <figure className="image is-64x64">
+            <img
+              src={`${process.env.NEXT_PUBLIC_HOSTNAME}/glimpsee-logo.jpeg`}
+              className="is-rounded"
+            />
+          </figure>
           <span className="is-size-2 has-text-grey-dark has-text-weight-medium">
             Glimp<span className="has-text-primary">see</span>
           </span>

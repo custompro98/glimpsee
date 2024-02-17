@@ -67,14 +67,18 @@ export async function GET(request: Request) {
         }}
       >
         <img
+          style={{
+            borderRadius: 128,
+            marginRight: "16px",
+          }}
           alt="brand logo"
           src={
             avatar
               ? decodeURIComponent(avatar)
-              : `${process.env.NEXT_PUBLIC_HOSTNAME}/argo.png`
+              : `${process.env.NEXT_PUBLIC_HOSTNAME}/glimpsee-logo.jpeg`
           }
-          width="64px"
-          height="64px"
+          width="128px"
+          height="128px"
         />
         {title}
       </div>
