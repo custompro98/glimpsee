@@ -19,9 +19,7 @@ export default async function RootLayout({
           content={`${process.env.NEXT_PUBLIC_HOSTNAME}/api/og?id=${52}`}
         />
       </head>
-      <body
-        className={`${inter.className} has-navbar-fixed-top hero is-fullheight`}
-      >
+      <body className={`${inter.className} hero is-fullheight`}>
         <header>
           <Navigation />
         </header>

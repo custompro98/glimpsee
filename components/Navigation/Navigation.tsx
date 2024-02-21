@@ -1,4 +1,5 @@
 import { auth } from "@/auth";
+import Image from "next/image";
 import Link from "next/link";
 
 interface Props {}
@@ -10,16 +11,15 @@ export default async function Navigation({}: Props) {
   const currentRoute = "";
 
   return (
-    <nav
-      className="navbar is-transparent is-fixed-top"
-      role="navigation"
-      aria-label="main navigation"
-    >
+    <nav className="navbar" role="navigation" aria-label="main navigation">
       <div className="navbar-brand">
         <Link className="navbar-item" href="/">
           <figure className="image is-64x64">
-            <img
-              src={`${process.env.NEXT_PUBLIC_HOSTNAME}/glimpsee-logo.jpeg`}
+            <Image
+              alt="glimpsee logo of an eye peering through a keyhole"
+              src={`/glimpsee-logo.jpeg`}
+              width="512"
+              height="512"
               className="is-rounded"
             />
           </figure>
