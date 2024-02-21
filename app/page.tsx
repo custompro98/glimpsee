@@ -1,4 +1,5 @@
 import { auth } from "@/auth";
+import Image from "next/image";
 import Link from "next/link";
 
 export default async function Home() {
@@ -46,25 +47,31 @@ export default async function Home() {
         <div className="tile is-parent">
           <article className="tile is-child p-1">
             <figure className="image is-2by1">
-              <img
+              <Image
                 alt="sample blog post glimpsee image"
-                src={`${process.env.NEXT_PUBLIC_HOSTNAME}/api/og?id=${51}`}
+                src={`/api/og?id=${51}`}
+                width="870"
+                height="435"
               />
             </figure>
           </article>
           <article className="tile is-child p-1">
             <figure className="image is-2by1">
-              <img
+              <Image
                 alt="sample blog post glimpsee image"
-                src={`${process.env.NEXT_PUBLIC_HOSTNAME}/api/og?id=${52}`}
+                src={`/api/og?id=${52}`}
+                width="870"
+                height="435"
               />
             </figure>
           </article>
           <article className="tile is-child p-1">
             <figure className="image is-2by1">
-              <img
+              <Image
                 alt="sample blog post glimpsee image"
-                src={`${process.env.NEXT_PUBLIC_HOSTNAME}/api/og?id=${53}`}
+                src={`/api/og?id=${53}`}
+                width="870"
+                height="435"
               />
             </figure>
           </article>
