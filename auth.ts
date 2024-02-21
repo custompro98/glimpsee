@@ -13,6 +13,8 @@ export enum Provider {
 export const {
   handlers: { GET, POST },
   auth,
+  signIn,
+  signOut,
 } = NextAuth({
   secret: env.NEXTAUTH_SECRET,
   providers: [
