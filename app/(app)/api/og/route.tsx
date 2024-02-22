@@ -7,7 +7,6 @@ import { db } from "@/lib/database";
 import { ogImageBlogs, ogImageViews, ogImages } from "@/lib/database/tables";
 import { isPresent } from "@/lib/util";
 import { headers } from "next/headers";
-import Image from "next/image";
 
 export const runtime = "edge";
 
@@ -67,13 +66,17 @@ export async function GET(request: Request) {
           display: "flex",
         }}
       >
-        <Image
+        <img
           style={{
             borderRadius: 128,
             marginRight: "16px",
           }}
           alt="brand logo"
-          src={avatar ? decodeURIComponent(avatar) : "/glimpsee-logo.jpeg"}
+          src={
+            avatar
+              ? decodeURIComponent(avatar)
+              : `${process.env.NEXT_PUBLIC_HOSTNAME}/glimpsee-logo.jpeg`
+          }
           width="128"
           height="128"
         />
