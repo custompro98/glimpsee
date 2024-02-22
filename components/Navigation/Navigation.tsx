@@ -1,4 +1,4 @@
-import { auth } from "@/auth";
+import { auth, signOut } from "@/auth";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -70,14 +70,18 @@ export default async function Navigation({}: Props) {
           <div className="navbar-item">
             <div className="buttons">
               {(isSignedIn && (
-                <Link
-                  className="button is-small is-light"
-                  href="/api/auth/signout"
+                <form
+                  action={async () => {
+                    "use server";
+                    await signOut({ redirectTo: "/" });
+                  }}
                 >
-                  <strong>Sign out</strong>
-                </Link>
+                  <button className="button is-small is-light">
+                    <strong>Sign out</strong>
+                  </button>
+                </form>
               )) || (
-                <Link className="button is-primary" href="/api/auth/signin">
+                <Link className="button is-primary" href="/sign-in">
                   Sign in
                 </Link>
               )}
