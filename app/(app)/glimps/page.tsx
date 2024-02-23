@@ -38,69 +38,71 @@ export default async function Images({
           Create
         </Link>
       </div>
-      <div className="table-container">
-        <table className="table is-striped is-hoverable is-fullwidth">
-          <thead>
-            <tr>
-              <th scope="col">Title</th>
-              <th scope="col">Text color</th>
-              <th scope="col">Background color</th>
-              <th scope="col">Impressions</th>
-              <th scope="col"></th>
-            </tr>
-          </thead>
-          <tbody>
-            {listResults.records.map((image) => {
-              return (
-                <tr key={image.og_images.id}>
-                  <th scope="row">
-                    {Boolean(image.og_image_blog.icon) && (
-                      <figure className="image is-32x32 is-inline-block mr-2">
-                        <img
-                          className="is-rounded"
-                          src={image.og_image_blog.icon}
-                        />
-                      </figure>
-                    )}
-                    {image.og_image_blog.title}
-                  </th>
-                  <td>{image.og_image_blog.textColor}</td>
-                  <td>{image.og_image_blog.backgroundColor}</td>
-                  <td>{image.counts?.impressions || 0}</td>
-                  <td>
-                    <Link href={`/glimps/${image.og_images.id}`}>
-                      <span className="icon has-text-dark">
-                        <Icon path={mdiPencil} size={1} />
-                      </span>
-                    </Link>
+      <table className="table is-striped is-hoverable is-fullwidth">
+        <thead>
+          <tr>
+            <th scope="col">Title</th>
+            <th scope="col">Text color</th>
+            <th scope="col">Background color</th>
+            <th scope="col">Impressions</th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          {listResults.records.map((image) => {
+            return (
+              <tr key={image.og_images.id}>
+                <th scope="row">
+                  {Boolean(image.og_image_blog.icon) && (
+                    <figure className="image is-32x32 is-inline-block mr-2">
+                      <img
+                        className="is-rounded"
+                        src={image.og_image_blog.icon}
+                      />
+                    </figure>
+                  )}
+                  {image.og_image_blog.title}
+                </th>
+                <td>{image.og_image_blog.textColor}</td>
+                <td>{image.og_image_blog.backgroundColor}</td>
+                <td>{image.counts?.impressions || 0}</td>
+                <td>
+                  <Link href={`/glimps/${image.og_images.id}`}>
                     <span className="icon has-text-dark">
-                      <Icon path={mdiDelete} size={1} />
+                      <Icon path={mdiPencil} size={1} />
                     </span>
-                  </td>
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
-        <nav
-          className="pagination is-centered"
-          role="navigation"
-          aria-label="pagination"
+                  </Link>
+                  <span className="icon has-text-dark">
+                    <Icon path={mdiDelete} size={1} />
+                  </span>
+                </td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
+      <nav
+        className="pagination is-centered"
+        role="navigation"
+        aria-label="pagination"
+      >
+        <Link
+          className={`pagination-previous ${
+            !listResults.hasPrev ? "is-disabled" : ""
+          }`}
+          href={`/glimps?page=${page - 1}`}
         >
-          <Link
-            className={`pagination-previous ${!listResults.hasPrev ? "is-disabled" : ""}`}
-            href={`/glimps?page=${page - 1}`}
-          >
-            Previous
-          </Link>
-          <Link
-            className={`pagination-next ${!listResults.hasNext ? "is-disabled" : ""}`}
-            href={`/glimps?page=${page + 1}`}
-          >
-            Next
-          </Link>
-        </nav>
-      </div>
+          Previous
+        </Link>
+        <Link
+          className={`pagination-next ${
+            !listResults.hasNext ? "is-disabled" : ""
+          }`}
+          href={`/glimps?page=${page + 1}`}
+        >
+          Next
+        </Link>
+      </nav>
     </section>
   );
 }
