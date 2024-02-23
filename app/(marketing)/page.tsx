@@ -17,10 +17,7 @@ export default async function Home() {
               Customize the title, background, and icon to suit your needs.
             </p>
             {!isSignedIn && (
-              <Link
-                href="/api/auth/signin"
-                className="button is-primary is-large"
-              >
+              <Link href="/sign-in" className="button is-primary is-large">
                 Get started
               </Link>
             )}

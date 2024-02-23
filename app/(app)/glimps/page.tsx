@@ -23,7 +23,7 @@ export default async function Images({
   if (!isPresent(session?.user?.id)) {
     return (
       <div>
-        Please <Link href="/api/auth/signin">sign in</Link>
+        Please <Link href="/sign-in">sign in</Link>
       </div>
     );
   }
