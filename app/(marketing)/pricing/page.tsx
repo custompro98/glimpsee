@@ -10,42 +10,54 @@ export default function Pricing() {
           <div className="tile is-ancestor is-vertical">
             <div className="tile is-parent box">
               <article className="tile is-child notification has-background-grey-lightest">
-                <p className="title">Quickstart</p>
-                <p className="subtitle">$4.99/mo</p>
+                <p className="title">Whisper</p>
+                <p className="subtitle">
+                  Great fit for the solo author with growth potential, you have
+                  an impact to make.
+                </p>
                 <div className="content">
                   <ul>
-                    <li>Up to 5 new Glimps per month</li>
+                    <li>5 new Glimps per month</li>
+                    <li>150 impressions per month</li>
                   </ul>
-                  <Link href="/api/auth/signin">Get started</Link>
+                  <Link href="/sign-in">$4.99/mo</Link>
                 </div>
               </article>
             </div>
             <div className="tile is-parent box">
               <article className="tile is-child notification is-primary">
                 <p className="title">
-                  Growth
+                  Chatter
                   <span className="icon is-pulled-right">
                     <Icon path={mdiStar} size={1} />
                   </span>
                 </p>
-                <p className="subtitle">$24.99/mo</p>
+                <p className="subtitle">
+                  Ideal for authors with influence, people trust you and for
+                  good reason.
+                </p>
                 <div className="content">
                   <ul>
-                    <li>Up to 30 new Glimps per month</li>
+                    <li>30 new Glimps per month</li>
+                    <li>1000 impressions per month</li>
                   </ul>
-                  <Link href="/api/auth/signin">Get started</Link>
+                  <Link href="/sign-in">$24.99/mo</Link>
                 </div>
               </article>
             </div>
             <div className="tile is-parent box">
               <article className="tile is-child notification has-background-grey-lightest">
-                <p className="title">Enterprise</p>
-                <p className="subtitle">Let&apos;s talk</p>
+                <p className="title">Buzz</p>
+                <p className="subtitle">
+                  Best for authors with a team behind them, the whole world
+                  knows who you are.
+                </p>
                 <div className="content">
                   <ul>
                     <li>Unlimited new Glimps per month</li>
+                    <li>Unlimited impressions per month</li>
                   </ul>
-                  <Link href="/api/auth/signin">Get in touch</Link>
+                  <Link href="/sign-in">Let&apos;s talk</Link>
                 </div>
               </article>
             </div>
