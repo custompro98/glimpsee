@@ -27,7 +27,7 @@ export default function Pricing() {
           </div>
         </div>
         <div className="column">
-          <div className="card">
+          <div className="card has-background-primary-light">
             <div className="card-content">
               <p className="title">
                 Chatter
