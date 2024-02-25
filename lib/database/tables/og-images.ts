@@ -13,9 +13,9 @@ export const ogImages = sqliteTable(
       .notNull()
       .references(() => users.id),
     // this should be NOT NULL but need a custom migration for sqlite
-    accountId: integer("account_id", { mode: "number" }).references(
-      () => accounts.id,
-    ),
+    accountId: integer("account_id", { mode: "number" })
+      .notNull()
+      .references(() => accounts.id),
     type: text("type", { enum: ["blog"] }).notNull(),
 
     createdAt: integer("created_at", { mode: "timestamp" })
