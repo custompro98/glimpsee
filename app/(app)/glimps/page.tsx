@@ -29,7 +29,7 @@ export default async function Images({
   }
 
   const page = parseInt(searchParams[SearchParamKeys.PAGE] || "1");
-  const listResults = await list(session.user.id, { page });
+  const listResults = await list(session.user.accountId, { page });
 
   return (
     <section className="container">

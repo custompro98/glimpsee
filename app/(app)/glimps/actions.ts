@@ -11,7 +11,7 @@ interface ListResult<T> {
 }
 
 export async function list(
-  userId: string,
+  accountId: string,
   pagination: { page?: number; limit?: number },
 ) {
   "use server";
@@ -36,7 +36,7 @@ export async function list(
     .leftJoin(countQuery, eq(ogImages.id, countQuery.ogImageId))
     .where(
       and(
-        eq(ogImages.userId, parseInt(userId, 10)),
+        eq(ogImages.accountId, parseInt(accountId, 10)),
         isNull(ogImages.deletedAt),
       ),
     )

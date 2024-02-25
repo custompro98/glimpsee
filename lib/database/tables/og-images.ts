@@ -1,6 +1,7 @@
 import { sql } from "drizzle-orm";
 import { index, integer, sqliteTable, text } from "drizzle-orm/sqlite-core";
 import { users } from "./users";
+import { accounts } from "./accounts";
 
 export const ogImages = sqliteTable(
   "og_images",
@@ -11,6 +12,10 @@ export const ogImages = sqliteTable(
     userId: integer("user_id", { mode: "number" })
       .notNull()
       .references(() => users.id),
+    // this should be NOT NULL but need a custom migration for sqlite
+    accountId: integer("account_id", { mode: "number" }).references(
+      () => accounts.id,
+    ),
     type: text("type", { enum: ["blog"] }).notNull(),
 
     createdAt: integer("created_at", { mode: "timestamp" })

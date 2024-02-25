@@ -1,10 +1,20 @@
-import NextAuth from "next-auth";
+import NextAuth, { User } from "next-auth";
+import { AdapterUser } from "next-auth/adapters";
 import Google, { GoogleProfile } from "next-auth/providers/google";
 import { eq } from "drizzle-orm";
 
 import env from "@/lib/env";
 import { assertNever, isPresent } from "@/lib/util";
 import { db, tables } from "@/lib/database";
+
+declare module "next-auth" {
+  interface Session {
+    user: {
+      accountId: string;
+    } & AdapterUser &
+      User;
+  }
+}
 
 export enum Provider {
   GOOGLE = "google",
@@ -48,9 +58,29 @@ export const {
                 avatar: googleProfile.picture,
               });
             } else {
-              await db.insert(tables.users).values({
-                email: googleProfile.email,
-                avatar: googleProfile.picture,
+              await db.transaction(async (trx) => {
+                // create user
+                const [user] = await trx
+                  .insert(tables.users)
+                  .values({
+                    email: googleProfile.email,
+                    avatar: googleProfile.picture,
+                  })
+                  .returning();
+
+                // create new account
+                const [account] = await trx
+                  .insert(tables.accounts)
+                  .values({
+                    name: user.email,
+                  })
+                  .returning();
+
+                // associate user with account
+                await trx.insert(tables.accountUsers).values({
+                  accountId: account.id,
+                  userId: user.id,
+                });
               });
             }
           } catch (e) {
@@ -74,17 +104,30 @@ export const {
       const [existingUser] = await db
         .select()
         .from(tables.users)
+        .innerJoin(
+          tables.accountUsers,
+          eq(tables.users.id, tables.accountUsers.userId),
+        )
+        .innerJoin(
+          tables.accounts,
+          eq(tables.accountUsers.accountId, tables.accounts.id),
+        )
         .where(eq(tables.users.email, token.email))
         .limit(1)
         .execute();
 
-      token.id = existingUser.id;
+      token.userId = existingUser.users.id;
+      token.accountId = existingUser.accounts.id;
 
       return token;
     },
     async session({ session, token }) {
-      if (token.id) {
-        session.user.id = `${token.id}`;
+      if (token.userId) {
+        session.user.id = `${token.userId}`;
+      }
+
+      if (token.accountId) {
+        session.user.accountId = `${token.accountId}`;
       }
 
       return session;

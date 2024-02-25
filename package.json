@@ -8,8 +8,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "migrations:drop": "drizzle-kit drop --driver sqlite --out ./drizzle/migrations",
     "migrations:generate": "drizzle-kit generate:sqlite --out ./drizzle/migrations --breakpoints --schema=./lib/database/tables/index.ts",
-    "migrate": "tsx drizzle/migrate"
+    "migrations:run": "tsx drizzle/migrate"
   },
   "dependencies": {
     "@libsql/client": "^0.4.0-pre.5",
