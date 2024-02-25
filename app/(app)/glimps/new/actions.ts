@@ -33,8 +33,9 @@ export async function create(formData: FormData) {
 
   const session = await auth();
   const userId = session?.user?.id;
+  const accountId = session?.user?.accountId;
 
-  if (!isPresent(userId)) {
+  if (!isPresent(userId) || !isPresent(accountId)) {
     throw new Error("Please sign in.");
   }
 
@@ -42,7 +43,8 @@ export async function create(formData: FormData) {
     const [ogImageRecord] = await trx
       .insert(ogImages)
       .values({
-        userId: parseInt(userId || "", 10),
+        accountId: parseInt(accountId, 10),
+        userId: parseInt(userId, 10),
         type: "blog",
       })
       .returning()
