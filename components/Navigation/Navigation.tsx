@@ -17,7 +17,7 @@ export default async function Navigation({}: Props) {
           <figure className="image is-64x64">
             <Image
               alt="glimpsee logo of an eye peering through a keyhole"
-              src="/glimpsee-logo.jpeg"
+              src="/glimpsee-logo-icon.png"
               width="512"
               height="512"
               className="is-rounded"
